@@ -5,6 +5,8 @@ Basically just an adaptation of
 [tiny-devicons-auto-colors.nvim](https://github.com/rachartier/tiny-devicons-auto-colors.nvim)
 plugin for Yazi.
 
+![image](assets/before.png) ![image](assets/after.png)
+
 ## On Tap
 
 Simply grab the ready-made [mocha.toml](/mocha.toml), rename it and add it to
