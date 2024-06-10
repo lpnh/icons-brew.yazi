@@ -1,6 +1,6 @@
 # icons-brew.yazi
 
-Make a hot Yazi `theme.toml` for your icons using your favorite color palette.
+Make a hot `theme.toml` for your Yazi icons with your favorite color palette.  
 Basically just an adaptation of
 [tiny-devicons-auto-colors.nvim](https://github.com/rachartier/tiny-devicons-auto-colors.nvim)
 plugin for Yazi.
