@@ -5,6 +5,8 @@ Basically just an adaptation of
 [tiny-devicons-auto-colors.nvim](https://github.com/rachartier/tiny-devicons-auto-colors.nvim)
 plugin for Yazi.
 
+## Screenshots
+
 <details>
   <summary>Dark theme</summary>
     <img src="assets/default_dark.png"> <img src="assets/mocha.png">
