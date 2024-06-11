@@ -5,7 +5,15 @@ Basically just an adaptation of
 [tiny-devicons-auto-colors.nvim](https://github.com/rachartier/tiny-devicons-auto-colors.nvim)
 plugin for Yazi.
 
-![image](assets/before.png) ![image](assets/after.png)
+<details>
+  <summary>Dark theme</summary>
+    <img src="assets/default_dark.png"> <img src="assets/mocha.png">
+</details>
+
+<details>
+  <summary>Light theme</summary>
+    <img src="assets/default_light.png"> <img src="assets/latte.png">
+</details>
 
 Observe how the default colors (on the left) have been replaced with
 user-provided colors (on the right). The key lies in selecting the nearest
