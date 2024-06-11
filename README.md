@@ -7,7 +7,7 @@ plugin for Yazi.
 
 ## Screenshots
 
-<details>
+<details open>
   <summary>Dark theme</summary>
     <img src="assets/default_dark.png"> <img src="assets/mocha.png">
 </details>
