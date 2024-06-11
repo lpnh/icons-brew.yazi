@@ -7,22 +7,27 @@ plugin for Yazi.
 
 ![image](assets/before.png) ![image](assets/after.png)
 
+Observe how the default colors (on the left) have been replaced with
+user-provided colors (on the right). The key lies in selecting the nearest
+color from the new given palette that matches the original one.
+
 ## On Tap
 
-If you have a taste for [catppuccin's Mocha
-palette](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette)
-just grab the ready-made [mocha.toml](/mocha.toml), rename it and add it to
-your Yazi config path. That's it, enjoy!
+If you have a taste for [catppuccin
+flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette)
+just grab the ready-made [catppuccin.toml](/catppuccin.toml), rename it and add
+it to your Yazi config path. That's it, enjoy!
 
-*`mocha.toml` is the script's default output.*
+*`catppuccin.toml` is the script's default output. It uses Mocha and Latte
+palettes for dark and light theme respectively.*
 
 ## Self-service
 
 ### Prepare
 
-Use the `colors_table` in the [config.lua](/config.lua) file to apply the
-desired color palette. There's also some other variables you can adjust to
-change the color matching results.
+Use the `dark_colors_table` and `light_colors_table` in the
+[config.lua](/config.lua) file to apply the desired color palette. There's also
+some other variables you can adjust to change the color matching results.
 
 ### Brew
 

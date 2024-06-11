@@ -1,8 +1,9 @@
 local M = {}
 
--- A table of hex colors used to assign colors to the icons
---   It uses catppuccin's Mocha color palette by default
-M.colors_table = {
+-- A table of hex colors that will be assigned to Yazi dark theme icons
+-- You can add as many as you want and the order doesn't matter
+-- Catppuccin's Mocha palette by default
+M.dark_colors_table = {
   '#f5e0dc',
   '#f2cdcd',
   '#f5c2e7',
@@ -29,6 +30,38 @@ M.colors_table = {
   '#1e1e2e',
   '#181825',
   '#11111b',
+}
+
+-- A table of hex colors that will be assigned to Yazi light theme icons
+-- You can add as many as you want and the order doesn't matter
+-- Catppuccin's Latte palette by default
+M.light_colors_table = {
+  '#dc8a78',
+  '#dd7878',
+  '#ea76cb',
+  '#8839ef',
+  '#d20f39',
+  '#e64553',
+  '#fe640b',
+  '#df8e1d',
+  '#40a02b',
+  '#179299',
+  '#04a5e5',
+  '#209fb5',
+  '#1e66f5',
+  '#7287fd',
+  '#4c4f69',
+  '#5c5f77',
+  '#6c6f85',
+  '#7c7f93',
+  '#8c8fa1',
+  '#9ca0b0',
+  '#acb0be',
+  '#bcc0cc',
+  '#ccd0da',
+  '#eff1f5',
+  '#e6e9ef',
+  '#dce0e8',
 }
 
 -- Factors that can be adjusted to get a better color matching

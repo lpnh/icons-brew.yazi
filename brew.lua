@@ -26,9 +26,10 @@ local function fill(map)
     return a.name:lower() < b.name:lower()
   end)
   for _, v in ipairs(list) do
-    local blend = prepare.matching_colors(v.fg_dark, config.colors_table, config.factors, config.precise_search)
+    local dark_blend = prepare.matching_colors(v.fg_dark, config.dark_colors_table, config.factors, config.precise_search)
+    local light_blend = prepare.matching_colors(v.fg_light, config.light_colors_table, config.factors, config.precise_search)
     -- stylua: ignore
-    print(string.format('\t{ name = "%s", text = "%s", fg_dark = "%s", fg_light = "%s" },', v.name, v.text, blend, v.fg_light))
+    print(string.format('\t{ name = "%s", text = "%s", fg_dark = "%s", fg_light = "%s" },', v.name, v.text, dark_blend, light_blend))
   end
 end
 
