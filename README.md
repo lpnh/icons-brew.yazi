@@ -26,7 +26,15 @@ color from the new given palette that matches the original one.
 If you have a taste for [catppuccin
 flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette)
 just grab the ready-made [catppuccin.toml](/catppuccin.toml), rename it and add
-it to your Yazi config path. That's it, enjoy!
+it to your Yazi config path.
+
+Using `wget`:
+
+```
+wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin.toml
+```
+
+That's it, enjoy!
 
 *`catppuccin.toml` is the script's default output. It uses Mocha and Latte
 palettes for dark and light theme respectively.*
