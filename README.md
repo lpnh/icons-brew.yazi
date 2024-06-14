@@ -21,6 +21,10 @@ Observe how the default colors (on the left) have been replaced with
 user-provided colors (on the right). The key lies in selecting the nearest
 color from the new given palette that matches the original one.
 
+These screenshots were made using the script's default output, which is the
+same as the one you can find in the `catppuccin.toml` file. The default config
+uses the Mocha and Latte palettes for dark and light themes, respectively.
+
 ## On Tap
 
 If you have a taste for [catppuccin
@@ -35,9 +39,6 @@ wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-b
 ```
 
 That's it, enjoy!
-
-*`catppuccin.toml` is the script's default output. It uses Mocha and Latte
-palettes for dark and light theme respectively.*
 
 ## Self-service
 
