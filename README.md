@@ -24,13 +24,13 @@ color from the new given palette that matches the original one.
 ## On Tap
 
 If you have a taste for [catppuccin
-flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette)
-just grab the ready-made [catppuccin.toml](/catppuccin.toml), rename it and add
-it to your Yazi config path.
+flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette),
+just grab the ready-made [catppuccin.toml](/catppuccin.toml), rename it to
+`theme.toml` and add it to your Yazi config path. You can do this with a single
+command using `wget`, but be aware that this will overwrite any existing
+`theme.toml` file in your `~/.config/yazi` directory:
 
-Using `wget`:
-
-```
+```sh
 wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin.toml
 ```
 
