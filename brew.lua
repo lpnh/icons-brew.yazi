@@ -25,19 +25,28 @@ local function fill(map)
   table.sort(list, function(a, b)
     return a.name:lower() < b.name:lower()
   end)
+  local dark_blend, light_blend = '', ''
+  local dark, light = '', ''
   for _, v in ipairs(list) do
-    local dark_blend = prepare.matching_colors(v.fg_dark, config.dark_colors_table, config.factors, config.precise_search)
-    local light_blend = prepare.matching_colors(v.fg_light, config.light_colors_table, config.factors, config.precise_search)
-    -- stylua: ignore
-    print(string.format('\t{ name = "%s", text = "%s", fg_dark = "%s", fg_light = "%s" },', v.name, v.text, dark_blend, light_blend))
+    dark_blend = prepare.matching_colors(v.fg_dark, config.dark_colors_table, config.factors, config.precise_search)
+    light_blend = prepare.matching_colors(v.fg_light, config.light_colors_table, config.factors, config.precise_search)
+
+    dark = dark .. string.format('\t{ name = "%s", text = "%s", fg = "%s" },\n', v.name, v.text, dark_blend)
+    light = light .. string.format('\t{ name = "%s", text = "%s", fg = "%s" },\n', v.name, v.text, light_blend)
   end
+  return dark, light
 end
 
-print '[icon]'
-print 'files = ['
-fill(rearrange 'files')
-print ']'
+function save(typ, files, exts)
+  local p = string.format('theme+%s.toml', typ)
+  local s = io.open(p, 'r'):read '*a'
+  s = s:gsub('files = %[\n(.-)\n%]', string.format('files = [\n%s]', files))
+  s = s:gsub('exts = %[\n(.-)\n%]', string.format('exts = [\n%s]', exts))
+  io.open(p, 'w'):write(s)
+end
 
-print 'exts = ['
-fill(rearrange 'exts')
-print ']'
+local dark_files, light_files = fill(rearrange 'files')
+local dark_exts, light_exts = fill(rearrange 'exts')
+
+save('dark', dark_files, dark_exts)
+save('light', light_files, light_exts)
