@@ -29,13 +29,23 @@ uses the Mocha and Latte palettes for dark and light themes, respectively.
 
 If you have a taste for [catppuccin
 flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette),
-just grab the ready-made [catppuccin.toml](/catppuccin.toml), rename it to
-`theme.toml` and add it to your Yazi config path. You can do this with a single
-command using `wget`, but be aware that this will overwrite any existing
-`theme.toml` file in your `~/.config/yazi` directory:
+just grab the available ready-made theme inside the [catppuccin](/catppuccin)
+directory. Rename the file to `theme.toml` and add it to your Yazi
+configuration path.
+
+This can be done with a single `wget` command, but be aware that this will
+overwrite any existing `theme.toml` file in your `~/.config/yazi` directory.
+
+For the mocha flavor:
 
 ```sh
-wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin.toml
+wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin/mocha.toml
+```
+
+For the latte flavor:
+
+```sh
+wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin/latte.toml
 ```
 
 That's it, enjoy!
