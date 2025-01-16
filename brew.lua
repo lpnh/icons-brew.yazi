@@ -3,7 +3,7 @@ local dark = require("nvim-web-devicons.icons-default")
 local light = require("nvim-web-devicons.icons-light")
 local prepare = require("prepare")
 
-local function rearrange(by)
+function rearrange(by)
 	local map = {}
 	local source = by == "exts" and "icons_by_file_extension" or "icons_by_filename"
 	for k, v in pairs(dark[source]) do
@@ -17,7 +17,7 @@ local function rearrange(by)
 	return map
 end
 
-local function fill(map)
+function fill(map)
 	local list = {}
 	for k, v in pairs(map) do
 		list[#list + 1] = { name = k, text = v.icon, fg_dark = v.fg_dark, fg_light = v.fg_light }
