@@ -36,10 +36,11 @@ function fill(map)
 end
 
 function save(typ, files, exts)
+	local t = "empty-theme.toml"
 	local p = string.format("theme-%s.toml", typ)
-	local s = io.open(p, "r"):read("*a")
-	s = s:gsub("files = %[\n(.-)\n%]", string.format("files = [\n%s]", files))
-	s = s:gsub("exts = %[\n(.-)\n%]", string.format("exts = [\n%s]", exts))
+	local s = io.open(t, "r"):read("*a")
+	s = s:gsub("files = %[%]", string.format("files = [\n%s]", files))
+	s = s:gsub("exts = %[%]", string.format("exts = [\n%s]", exts))
 	io.open(p, "w"):write(s)
 end
 
