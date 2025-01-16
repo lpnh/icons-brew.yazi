@@ -60,18 +60,10 @@ some other variables you can adjust to change the color matching results.
 
 ### Brew
 
-Run the `brew.lua` script and save the output in a `theme.toml` file.
-
-Using Bash:
+Run the `brew.lua` script and it will generate both dark and light theme files.
 
 ```bash
-lua brew.lua > theme.toml
-```
-
-Using Nushell:
-
-```nushell
-lua brew.lua | save theme.toml
+lua brew.lua
 ```
 
 ### Serve
@@ -79,7 +71,7 @@ lua brew.lua | save theme.toml
 Add the generated file to your Yazi config directory:
 
 ```shell
-mv theme.toml ~/.config/yazi/theme.toml
+mv theme-dark.toml ~/.config/yazi/theme.toml
 ```
 
 ## Acknowledgement
