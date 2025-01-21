@@ -5,8 +5,6 @@
 # for dark and light modes under `[flavor]`, and do so in those flavors instead.
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
-# vim:fileencoding=utf-8:foldmethod=marker
-
 # : Flavor {{{
 
 [flavor]
@@ -23,3 +21,5 @@ files = []
 exts = []
 
 # : }}}
+
+# vim:fileencoding=utf-8:foldmethod=marker
