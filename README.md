@@ -31,21 +31,18 @@ If you have a taste for [catppuccin
 flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette),
 just grab the available ready-made theme inside the [catppuccin](/catppuccin)
 directory. Rename the file to `theme.toml` and add it to your Yazi
-configuration path.
+configuration path. This can be done with a single `curl` command.
 
-This can be done with a single `wget` command, but be aware that this will
-overwrite any existing `theme.toml` file in your `~/.config/yazi` directory.
-
-For the mocha flavor:
+For the Mocha flavor:
 
 ```sh
-wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin/mocha.toml
+curl https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin/mocha.toml >> ~/.config/yazi/theme.toml
 ```
 
-For the latte flavor:
+For the Latte flavor:
 
 ```sh
-wget -O ~/.config/yazi/theme.toml https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin/latte.toml
+curl https://raw.githubusercontent.com/lpnh/icons-brew.yazi/main/catppuccin/latte.toml >> ~/.config/yazi/theme.toml
 ```
 
 That's it, enjoy!
