@@ -1,9 +1,6 @@
 # icons-brew.yazi
 
-Make a hot `theme.toml` for your Yazi icons with your favorite color palette.  
-Basically just an adaptation of
-[tiny-devicons-auto-colors.nvim](https://github.com/rachartier/tiny-devicons-auto-colors.nvim)
-plugin for Yazi.
+Make a hot `theme.toml` for your Yazi icons with your favorite color palette.
 
 ## Screenshots
 
@@ -76,9 +73,6 @@ mv theme-dark.toml ~/.config/yazi/theme.toml
 - [Yazi](https://yazi-rs.github.io) for the amazing — and *Blazing Fast* —
 terminal file manager. The `brew.lua` follows the same script found on [Yazi's
 repo](https://github.com/sxyazi/yazi/blob/main/scripts/icons/generate.lua).
-- [tiny-devicons-auto-colors.nvim](https://github.com/rachartier/tiny-devicons-auto-colors.nvim),
-for the algorithm and implementation logic. I.e. everything on the [prepare](/prepare)
-path and the `config.lua` file derived from it.
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons), for
 providing and maintaining the icons we all rely on.
 - [catppuccin](https://github.com/catppuccin), for the soothing pastel theme. The
