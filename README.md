@@ -4,7 +4,7 @@ Make a hot `theme.toml` for your Yazi icons with your favorite color palette.
 
 ## Screenshots
 
-<details open>
+<details>
   <summary>Dark theme</summary>
     <img src="assets/default_dark.png"> <img src="assets/mocha.png">
 </details>
@@ -14,11 +14,8 @@ Make a hot `theme.toml` for your Yazi icons with your favorite color palette.
     <img src="assets/default_light.png"> <img src="assets/latte.png">
 </details>
 
-Observe how the default colors (on the left) have been replaced with
-user-provided colors (on the right).
-
-These screenshots were made using the script's default output. The dark and
-light themes are based on Catppuccin's Mocha and Latte palettes, respectively.
+Observe how the default colors have been replaced by a custom theme inspired by
+Catppuccin's Mocha and Latte.
 
 ## On Tap
 
