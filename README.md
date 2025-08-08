@@ -19,10 +19,10 @@ Catppuccin's Mocha and Latte.
 
 ## On Tap
 
-If you have a taste for [catppuccin
+If you have a taste for [Catppuccin
 flavors](https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette),
 just grab the available ready-made theme inside the [catppuccin](/catppuccin)
-directory. Rename the file to `theme.toml` and add it to your Yazi
+directory. Rename the file to `theme.toml` and place it in your Yazi
 configuration path. This can be done with a single `curl` command.
 
 For the Mocha flavor:
@@ -144,8 +144,7 @@ This palette is divided into:
 
 `nvim-web-devicons` assigns each icon a `cterm_color` number from this palette.
 
-For a visual reference of the entire xterm palette, you can check out these
-resources:
+For a visual reference of the entire xterm palette, see the following resources:
 
 [xterm color chart on
 Wikipedia](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
@@ -224,13 +223,12 @@ light = "custom-latte"
 ```
 
 There are some ready-made themes available in the
-[yazi-rs/flavors](https://github.com/yazi-rs/flavors) repo. You could use any
-of them as a starting point and then just append the contents of our theme
-files to their `flavor.toml`.
+[yazi-rs/flavors](https://github.com/yazi-rs/flavors) repo. You can use any of
+them as a starting point and then just append the contents of your
+`theme-dark.toml` or `theme-light.toml` to their `flavor.toml`.
 
-For more information, can check out the [Flavors
-section](https://yazi-rs.github.io/docs/flavors/overview) in the Yazi
-documentation.
+See the [Flavors section](https://yazi-rs.github.io/docs/flavors/overview) of
+the Yazi documentation for more details.
 
 ## Acknowledgement
 
@@ -239,5 +237,5 @@ terminal file manager. The `brew.lua` follows the same script found on [Yazi's
 repo](https://github.com/sxyazi/yazi/blob/main/scripts/icons/generate.lua).
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons), for
 providing and maintaining the icons we all rely on.
-- [catppuccin](https://github.com/catppuccin), for the soothing pastel theme. The
+- [Catppuccin](https://github.com/catppuccin), for the soothing pastel theme. The
 warmest flavors one could ask for.
