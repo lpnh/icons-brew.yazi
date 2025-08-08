@@ -167,6 +167,71 @@ pleasing and semantically coherent. But there's always room for improvement.
 If you have any suggestion, please feel free to **open an issue or start a new
 discussion**. Your feedback is more than welcome!
 
+## Automatic Theme Switching
+
+As you may have noticed, the dark and the light themes are split into two
+configuration files (`theme-dark.toml` and `theme-light.toml`), while the setup
+instructions mentions a single `theme.toml` file.
+
+The `theme.toml` supports only one color scheme. If your terminal usage
+involves dynamic theme switching, this means a single theme will be applied to
+your icon colors regardless, as the values in the `theme.toml` file take
+precedence over any other configuration.
+
+Fortunately, Yazi allows us to switch between themes using the `[flavor]`
+section in the `theme.toml`. Here, we can specify two different configuration
+files (flavors), one for each mode, like this:
+
+```toml
+[flavor]
+dark  = "dracula"
+light = "one-light"
+```
+
+To achieve this, we need to convert the generated theme files into custom Yazi
+flavors. Like plugins, Yazi flavors have their own `flavors` directory, and
+each flavor is a directory with a kebab-case name ending in `.yazi`.
+
+For example, to create `custom-mocha` and `custom-latte` flavors, the directory
+structure should look like this:
+
+```bash
+~/.config/yazi
+├──  flavors
+│   ├──  custom-latte.yazi
+│   └──  custom-mocha.yazi
+```
+
+So, what we need to do is create both directories:
+
+```bash
+mkdir -p ~/.config/yazi/flavors/custom-mocha.yazi ~/.config/yazi/flavors/custom-latte.yazi
+```
+
+Then, move each generated theme file into its respective flavor directory:
+
+```bash
+mv theme-dark.toml ~/.config/yazi/flavors/custom-mocha.yazi/flavor.toml
+mv theme-light.toml ~/.config/yazi/flavors/custom-latte.yazi/flavor.toml
+```
+
+Finally, tell Yazi to use our custom flavors in `~/.config/yazi/theme.toml`:
+
+```toml
+[flavor]
+dark = "custom-mocha"
+light = "custom-latte"
+```
+
+There are some ready-made themes available in the
+[yazi-rs/flavors](https://github.com/yazi-rs/flavors) repo. You could use any
+of them as a starting point and then just append the contents of our theme
+files to their `flavor.toml`.
+
+For more information, can check out the [Flavors
+section](https://yazi-rs.github.io/docs/flavors/overview) in the Yazi
+documentation.
+
 ## Acknowledgement
 
 - [Yazi](https://yazi-rs.github.io) for the amazing — and *Blazing Fast* —
