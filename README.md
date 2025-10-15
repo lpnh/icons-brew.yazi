@@ -4,18 +4,19 @@ Make a hot `theme.toml` for your Yazi icons with your favorite color palette.
 
 ## Screenshots
 
+Left: `nvim-web-devicons` defaults | Right: `Catppuccin` Mocha and Latte
+
 <details>
   <summary>Dark theme</summary>
-    <img src="assets/default_dark.png"> <img src="assets/mocha.png">
+  <img width="124" height="994" alt="Image" src="https://github.com/user-attachments/assets/038cbccc-8285-4d4c-8f4c-8366784a3052" />
+  <img width="124" height="994" alt="Image" src="https://github.com/user-attachments/assets/c7937c83-be23-4439-bac8-2584f5e82e36" />
 </details>
 
 <details>
   <summary>Light theme</summary>
-    <img src="assets/default_light.png"> <img src="assets/latte.png">
+  <img width="124" height="994" alt="Image" src="https://github.com/user-attachments/assets/3afa7f26-b037-4ded-bb8f-6f5b1d0a7118" />
+  <img width="124" height="994" alt="Image" src="https://github.com/user-attachments/assets/412146c1-e177-46e6-9e08-1a7073691dae" />
 </details>
-
-Observe how the default colors have been replaced by a custom theme inspired by
-Catppuccin's Mocha and Latte.
 
 ## On Tap
 
