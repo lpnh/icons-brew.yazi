@@ -69,8 +69,8 @@ mv theme-dark.toml ~/.config/yazi/theme.toml
 
 ## Configuration
 
-All configuration is done by editing the `dark`, `light`, and `groups` tables
-in the `config.lua` file.
+All configuration is done by editing the `dark`, `light`, `groups`, and
+optionally `glob_patterns` tables in the `config.lua` file.
 
 ### Color Theme
 
@@ -121,6 +121,36 @@ M.groups = {
 
 You can find the `cterm_color` for each icon in the
 [nvim-web-devicons](/nvim-web-devicons/) module.
+
+### Glob Patterns (Optional)
+
+For most use cases, the `files` and `exts` rules, filled (by default) by the
+`brew.lua` script, are more than sufficient.
+However, for more complex and precise rules, you can use the `glob_patterns`
+table, available in the `config.lua` file, to leverage Yazi's `glob` pattern
+support.
+
+The `glob_patterns` table maps glob patterns to filenames or extensions. Each
+pattern will inherit the icon and color from the specified filename or
+extension. The script generates the `glob` rules for you. `glob` matching takes
+precedence over `files` and `exts`.
+
+In the example below:
+
+* Backup lua files will inherit the icon from the `lua` extension.
+* Markdown files inside `docs` directories will inherit the icon from the
+  `readme` filename.
+
+```lua
+M.glob_patterns = {
+  ["*.lua.bak"] = "lua",
+  ["**/docs/*.md"] = "readme",
+}
+```
+
+**important!**: Be aware that `glob` pattern matching is significantly slower
+than the regular `files` and `exts` rules. Use this option sparingly and only
+for patterns you actually need.
 
 ## Rationale
 

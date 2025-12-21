@@ -72,4 +72,7 @@ M.get_color = function(theme, icon_number, icon_name)
 	error(string.format("Number `%d` not found in any group (icon: %s)", icon_number, icon_name))
 end
 
+-- Optional: map glob patterns to filenames or extensions
+M.glob_patterns = {}
+
 return M

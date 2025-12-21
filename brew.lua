@@ -34,14 +34,29 @@ function fill(map)
 	return dark, light
 end
 
-function save(th, files, exts)
+function save(th, globs, files, exts)
 	local p = string.format("theme-%s.toml", th)
-	local s = string.format("[icon]\n\nfiles = [\n%s]\nexts = [\n%s]\n", files, exts)
+	local s = globs and string.format("[icon]\n\nglobs = [\n%s]\nfiles = [\n%s]\nexts = [\n%s]\n", globs, files, exts)
+		or string.format("[icon]\n\nfiles = [\n%s]\nexts = [\n%s]\n", files, exts)
 	io.open(p, "w"):write(s)
 end
 
-local dark_files, light_files = fill(rearrange("files"))
-local dark_exts, light_exts = fill(rearrange("exts"))
+local exts_map = rearrange("exts")
+local files_map = rearrange("files")
+local dark_files, light_files = fill(files_map)
+local dark_exts, light_exts = fill(exts_map)
 
-save("dark", dark_files, dark_exts)
-save("light", light_files, light_exts)
+local dark_globs, light_globs
+if config.glob_patterns and next(config.glob_patterns) then
+	local globs_map = {}
+	for pattern, name in pairs(config.glob_patterns) do
+		assert(type(pattern) == "string", "invalid glob pattern")
+		local icon = exts_map[name] or files_map[name]
+		assert(icon, string.format("filename or extension '%s' not found for glob pattern '%s'", name, pattern))
+		globs_map[pattern] = icon
+	end
+	dark_globs, light_globs = fill(globs_map)
+end
+
+save("dark", dark_globs, dark_files, dark_exts)
+save("light", light_globs, light_files, light_exts)
