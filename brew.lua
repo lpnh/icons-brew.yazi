@@ -2,6 +2,23 @@ local config = require("config")
 local dark = require("nvim-web-devicons.icons-default")
 local light = require("nvim-web-devicons.icons-light")
 
+-- Detect yazi version to determine the correct field name (name vs url)
+-- https://github.com/sxyazi/yazi/pull/3034
+-- TODO: remove this after next stable release
+local function field_by_version()
+	local handle = io.popen("yazi --version 2>&1")
+	if handle then
+		local version = handle:read("*a"):match("Yazi%s+(%d+%.%d+%.%d+)")
+		handle:close()
+		if version == "25.5.31" then
+			return "name"
+		end
+	end
+	return "url"
+end
+
+local rule_field = field_by_version()
+
 function rearrange(by)
 	local map = {}
 	local source = by == "exts" and "icons_by_file_extension" or "icons_by_filename"
@@ -16,7 +33,8 @@ function rearrange(by)
 	return map
 end
 
-function fill(map)
+function fill(map, field)
+	field = field or "name" -- files and exts always use "name"
 	local list = {}
 	for k, v in pairs(map) do
 		list[#list + 1] = { name = k, text = v.icon, number_dark = v.number_dark, number_light = v.number_light }
@@ -28,8 +46,8 @@ function fill(map)
 		dark_blend = config.get_color(config.dark, v.number_dark, v.name)
 		light_blend = config.get_color(config.light, v.number_light, v.name)
 
-		dark = dark .. string.format('\t{ name = "%s", text = "%s", fg = "%s" },\n', v.name, v.text, dark_blend)
-		light = light .. string.format('\t{ name = "%s", text = "%s", fg = "%s" },\n', v.name, v.text, light_blend)
+		dark = dark .. string.format('\t{ %s = "%s", text = "%s", fg = "%s" },\n', field, v.name, v.text, dark_blend)
+		light = light .. string.format('\t{ %s = "%s", text = "%s", fg = "%s" },\n', field, v.name, v.text, light_blend)
 	end
 	return dark, light
 end
@@ -55,7 +73,7 @@ if config.glob_patterns and next(config.glob_patterns) then
 		assert(icon, string.format("filename or extension '%s' not found for glob pattern '%s'", name, pattern))
 		globs_map[pattern] = icon
 	end
-	dark_globs, light_globs = fill(globs_map)
+	dark_globs, light_globs = fill(globs_map, rule_field) -- globs use version-dependent field
 end
 
 save("dark", dark_globs, dark_files, dark_exts)
