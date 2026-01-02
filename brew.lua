@@ -2,23 +2,28 @@ local config = require("config")
 local dark = require("nvim-web-devicons.icons-default")
 local light = require("nvim-web-devicons.icons-light")
 
-function get_color(theme, icon_number, icon_name)
-	for group, number_table in pairs(config.groups) do
-		for _, n in ipairs(number_table) do
-			if n == icon_number then
-				local color = theme[group]
-				if not color then
-					error(string.format("Group `%s` missing from theme (icon: %s)", group, icon_name))
-				end
-				assert(
-					color:match("^#%x%x%x%x%x%x$"),
-					string.format("Invalid color value `%s` in group `%s` (icon: %s)", color, group, icon_name)
-				)
-				return color
-			end
-		end
+local number_to_group = {}
+for group, number_table in pairs(config.groups) do
+	for _, n in ipairs(number_table) do
+		number_to_group[n] = group
 	end
-	error(string.format("Number `%d` not found in any group (icon: %s)", icon_number, icon_name))
+end
+
+function get_color(theme, icon_number, icon_name)
+	local group = number_to_group[icon_number]
+	if not group then
+		error(string.format("Number `%d` not found in any group (icon: %s)", icon_number, icon_name))
+	end
+
+	local color = theme[group]
+	if not color then
+		error(string.format("Group `%s` missing from theme (icon: %s)", group, icon_name))
+	end
+	assert(
+		color:match("^#%x%x%x%x%x%x$"),
+		string.format("Invalid color value `%s` in group `%s` (icon: %s)", color, group, icon_name)
+	)
+	return color
 end
 
 function rearrange(by)
