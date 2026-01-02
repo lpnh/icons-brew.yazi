@@ -2,23 +2,6 @@ local config = require("config")
 local dark = require("nvim-web-devicons.icons-default")
 local light = require("nvim-web-devicons.icons-light")
 
--- Detect yazi version to determine the correct field name (name vs url)
--- https://github.com/sxyazi/yazi/pull/3034
--- TODO: remove this after next stable release
-local function field_by_version()
-	local handle = io.popen("yazi --version 2>&1")
-	if handle then
-		local version = handle:read("*a"):match("Yazi%s+(%d+%.%d+%.%d+)")
-		handle:close()
-		if version == "25.5.31" then
-			return "name"
-		end
-	end
-	return "url"
-end
-
-local rule_field = field_by_version()
-
 function rearrange(by)
 	local map = {}
 	local source = by == "exts" and "icons_by_file_extension" or "icons_by_filename"
@@ -34,7 +17,6 @@ function rearrange(by)
 end
 
 function fill(map, field)
-	field = field or "name" -- files and exts always use "name"
 	local list = {}
 	for k, v in pairs(map) do
 		list[#list + 1] = { name = k, text = v.icon, number_dark = v.number_dark, number_light = v.number_light }
@@ -61,8 +43,8 @@ end
 
 local exts_map = rearrange("exts")
 local files_map = rearrange("files")
-local dark_files, light_files = fill(files_map)
-local dark_exts, light_exts = fill(exts_map)
+local dark_files, light_files = fill(files_map, "name")
+local dark_exts, light_exts = fill(exts_map, "name")
 
 local dark_globs, light_globs
 if config.glob_patterns and next(config.glob_patterns) then
@@ -73,7 +55,7 @@ if config.glob_patterns and next(config.glob_patterns) then
 		assert(icon, string.format("filename or extension '%s' not found for glob pattern '%s'", name, pattern))
 		globs_map[pattern] = icon
 	end
-	dark_globs, light_globs = fill(globs_map, rule_field) -- globs use version-dependent field
+	dark_globs, light_globs = fill(globs_map, "url")
 end
 
 save("dark", dark_globs, dark_files, dark_exts)
