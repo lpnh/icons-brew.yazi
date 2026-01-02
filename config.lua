@@ -53,25 +53,6 @@ M.groups = {
 }
 -- stylua: ignore end
 
-M.get_color = function(theme, icon_number, icon_name)
-	for group, number_table in pairs(M.groups) do
-		for _, n in ipairs(number_table) do
-			if n == icon_number then
-				local color = theme[group]
-				if not color then
-					error(string.format("Group `%s` missing from theme (icon: %s)", group, icon_name))
-				end
-				assert(
-					color:match("^#%x%x%x%x%x%x$"),
-					string.format("Invalid color value `%s` in group `%s` (icon: %s)", color, group, icon_name)
-				)
-				return color
-			end
-		end
-	end
-	error(string.format("Number `%d` not found in any group (icon: %s)", icon_number, icon_name))
-end
-
 -- Optional: map glob patterns to filenames or extensions
 M.glob_patterns = {}
 

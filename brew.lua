@@ -2,6 +2,25 @@ local config = require("config")
 local dark = require("nvim-web-devicons.icons-default")
 local light = require("nvim-web-devicons.icons-light")
 
+function get_color(theme, icon_number, icon_name)
+	for group, number_table in pairs(config.groups) do
+		for _, n in ipairs(number_table) do
+			if n == icon_number then
+				local color = theme[group]
+				if not color then
+					error(string.format("Group `%s` missing from theme (icon: %s)", group, icon_name))
+				end
+				assert(
+					color:match("^#%x%x%x%x%x%x$"),
+					string.format("Invalid color value `%s` in group `%s` (icon: %s)", color, group, icon_name)
+				)
+				return color
+			end
+		end
+	end
+	error(string.format("Number `%d` not found in any group (icon: %s)", icon_number, icon_name))
+end
+
 function rearrange(by)
 	local map = {}
 	local source = by == "exts" and "icons_by_file_extension" or "icons_by_filename"
@@ -25,8 +44,8 @@ function fill(map, field)
 	local dark_blend, light_blend = "", ""
 	local dark, light = "", ""
 	for _, v in ipairs(list) do
-		dark_blend = config.get_color(config.dark, v.number_dark, v.name)
-		light_blend = config.get_color(config.light, v.number_light, v.name)
+		dark_blend = get_color(config.dark, v.number_dark, v.name)
+		light_blend = get_color(config.light, v.number_light, v.name)
 
 		dark = dark .. string.format('\t{ %s = "%s", text = "%s", fg = "%s" },\n', field, v.name, v.text, dark_blend)
 		light = light .. string.format('\t{ %s = "%s", text = "%s", fg = "%s" },\n', field, v.name, v.text, light_blend)
